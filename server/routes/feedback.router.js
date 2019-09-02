@@ -20,11 +20,10 @@ router.get('/', (req, res) => {
 router.post('/', (req,res) => {
     let feedback = req.body
 
-    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comment", "flagged", "date")
-                        VALUES($1, $2, $3, $4, $5, $6,);`;
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comment")
+                        VALUES($1, $2, $3, $4);`;
 
-        pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, 
-                                    feedback.comment, feedback.flagged, feedback.date])
+        pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comment])
         .then(result => {
             res.sendStatus(201);
         })

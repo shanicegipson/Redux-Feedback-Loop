@@ -8,12 +8,22 @@ import mapStoreToProps from '../../../modules/mapStoreToProps';
 
 class FeelingPage extends Component {
 
+
+    componentDidMount() {
+        console.log('Mounted')
+    }
+
     moveToContentPage = () => {
         this.props.history.push('/Content')
     }
 
-    selectFeeling = (event) => {
-        console.log('this is a POST');
+    selectFeelingRate = (event) => {
+        const ratingId = event.target.value;
+        console.log('Trying to get id', ratingId);
+        const feeling = this.props.store.feelingReducer[ratingId];
+        this.props.dispatch({type: 'SET_FEELING', payload: feeling});
+
+
     }
 
 
@@ -24,15 +34,15 @@ class FeelingPage extends Component {
                 <h1>How Are You Feeling Today?</h1>
                   <div>
                       <span className="Feeling Bad">I'm Feeling Stressed</span> 
-                        <input className='rating' type='radio' id='1' name='rate' />
-                        <input className='rating' type='radio' id='2' name='rate' />
-                        <input className='rating' type='radio' id='3' name='rate' />
-                        <input className='rating' type='radio' id='4' name='rate' />
-                        <input className='rating' type='radio' id='5' name='rate' />
+                        <input className='rating' type='radio' value='1' name='rate' onChange={this.selectFeelingRate} />
+                        <input className='rating' type='radio' value='2' name='rate' onChange={this.selectFeelingRate} />
+                        <input className='rating' type='radio' value='3' name='rate' onChange={this.selectFeelingRate} />
+                        <input className='rating' type='radio' value='4' name='rate' onChange={this.selectFeelingRate} />
+                        <input className='rating' type='radio' value='5' name='rate' onChange={this.selectFeelingRate} />
                       <span className="Feeling Great">I'm Feeling Great</span>
                   </div>
                   <br />
-                <button onClick={this.moveToContentPage}>Move to Understanding</button>
+                <button onClick={this.selectFeelingRate}>Move to Understanding</button>
             </div>
         )
     }

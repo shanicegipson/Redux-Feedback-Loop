@@ -1,9 +1,21 @@
 import axios from 'axios'
 
 const getFeedback = () => {
-    axios.get('/feedback')
+    return axios ({
+        method: 'GET',
+        url: '/feedback'
+    })
 }
 
-const postFeedback = () => {
-    axios.post('/feedback')
+const postFeedback = (feedback) => {
+    return ({
+        method: 'POST',
+        url: '/feedback',
+        data: {feedback}
+    })
+}
+
+export {
+    getFeedback,
+    postFeedback
 }

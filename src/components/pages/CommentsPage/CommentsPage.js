@@ -13,7 +13,7 @@ class CommentsPage extends Component {
         return(
             <div>
                 <h2>Is there anything else you'd like us to know?</h2>
-                <input type="text" placeholder="What would you like for us to know?" />
+                <textarea type="text" placeholder="What would you like for us to know?" />
                 <button onClick={this.moveToReviewPage}>Let's review</button>
             </div>
         )
