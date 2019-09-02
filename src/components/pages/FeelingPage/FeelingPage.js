@@ -18,9 +18,10 @@ class FeelingPage extends Component {
     }
 
     selectFeelingRate = (event) => {
-        const ratingId = event.target.value;
-        console.log('Trying to get id', ratingId);
-        const feeling = this.props.store.feelingReducer[ratingId];
+        const ratingValue = event.target.value;
+        const ratingValueNum = parseInt(ratingValue);
+        console.log('Trying to get id', ratingValueNum);
+        const feeling = this.props.store.feedbackReducer={ratingValueNum};
         this.props.dispatch({type: 'SET_FEELING', payload: feeling});
 
         this.moveToContentPage();

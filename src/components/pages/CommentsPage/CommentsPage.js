@@ -19,7 +19,7 @@ class CommentsPage extends Component {
         })
         
         console.log('Trying to get id', commentInfo);
-        const comments = this.props.store.feelingReducer[commentInfo];
+        const comments = this.props.store.feedbackReducer[commentInfo];
         this.props.dispatch({type: 'SET_COMMENTS', payload: comments});
 
         this.moveToReviewPage();

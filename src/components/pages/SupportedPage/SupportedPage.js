@@ -12,7 +12,7 @@ class SupportedPage extends Component {
     selectSupportedRate = (event) => {
         const supportedId = event.target.value;
         console.log('Trying to get id', supportedId);
-        const supported = this.props.store.feelingReducer[supportedId];
+        const supported = this.props.store.feedbackReducer[supportedId];
         this.props.dispatch({type: 'SET_SUPPORT', payload: supported});
 
         this.moveToCommentsPage();

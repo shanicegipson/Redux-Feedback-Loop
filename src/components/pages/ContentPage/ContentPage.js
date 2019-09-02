@@ -12,7 +12,7 @@ class ContentPage extends Component {
     selectContentRate = (event) => {
         const contentId = event.target.value;
         console.log('Trying to get id', contentId);
-        const content = this.props.store.feelingReducer[contentId];
+        const content = this.props.store.feedbackReducer[contentId];
         this.props.dispatch({type: 'SET_UNDERSTANDING', payload: content});
 
         this.moveToSupportedPage();
