@@ -9,17 +9,26 @@ class SupportedPage extends Component {
         this.props.history.push('/Comments')
     }
 
+    selectSupportedRate = (event) => {
+        const supportedId = event.target.value;
+        console.log('Trying to get id', supportedId);
+        const supported = this.props.store.feelingReducer[supportedId];
+        this.props.dispatch({type: 'SET_SUPPORT', payload: supported});
+
+        this.moveToCommentsPage();
+    }
+
     render () {
         return(
             <div>
                 <h2>Did you feel supported by Prime staff today?</h2>
                 <div>
                       <span className="Not Supported">I Feel Abandoned</span> 
-                        <input type='radio' id='1' name='rate' />
-                        <input type='radio' id='2' name='rate' />
-                        <input type='radio' id='3' name='rate' />
-                        <input type='radio' id='4' name='rate' />
-                        <input type='radio' id='5' name='rate' />
+                        <input className='rating' type='radio' value='1' name='rate' onChange={this.selectSupportedRate} />
+                        <input className='rating' type='radio' value='2' name='rate' onChange={this.selectSupportedRate} />
+                        <input className='rating' type='radio' value='3' name='rate' onChange={this.selectSupportedRate} />
+                        <input className='rating' type='radio' value='4' name='rate' onChange={this.selectSupportedRate} />
+                        <input className='rating' type='radio' value='5' name='rate' onChange={this.selectSupportedRate} />
                       <span className="Very Supported">I Feel Supported</span>
                   </div>
                   <br />

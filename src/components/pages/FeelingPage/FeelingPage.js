@@ -23,7 +23,7 @@ class FeelingPage extends Component {
         const feeling = this.props.store.feelingReducer[ratingId];
         this.props.dispatch({type: 'SET_FEELING', payload: feeling});
 
-
+        this.moveToContentPage();
     }
 
 

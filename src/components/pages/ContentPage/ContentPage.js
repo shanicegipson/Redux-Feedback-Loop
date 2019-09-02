@@ -4,8 +4,18 @@ import mapStoreToProps from '../../../modules/mapStoreToProps';
 
 class ContentPage extends Component {
 
+
     moveToSupportedPage = () => {
         this.props.history.push('/Supported')
+    }
+
+    selectContentRate = (event) => {
+        const contentId = event.target.value;
+        console.log('Trying to get id', contentId);
+        const content = this.props.store.feelingReducer[contentId];
+        this.props.dispatch({type: 'SET_UNDERSTANDING', payload: content});
+
+        this.moveToSupportedPage();
     }
 
     render () {
@@ -14,11 +24,11 @@ class ContentPage extends Component {
                 <h2>How well did you understand today's material?</h2>
                 <div>
                       <span className="Understanding Bad">I'm Totally Lost</span> 
-                        <input type='radio' id='1' name='rate' />
-                        <input type='radio' id='2' name='rate' />
-                        <input type='radio' id='3' name='rate' />
-                        <input type='radio' id='4' name='rate' />
-                        <input type='radio' id='5' name='rate' />
+                        <input className='rating' type='radio' value='1' name='rate' onChange={this.selectContentRate} />
+                        <input className='rating' type='radio' value='2' name='rate' onChange={this.selectContentRate} />
+                        <input className='rating' type='radio' value='3' name='rate' onChange={this.selectContentRate} />
+                        <input className='rating' type='radio' value='4' name='rate' onChange={this.selectContentRate} />
+                        <input className='rating' type='radio' value='5' name='rate' onChange={this.selectContentRate} />
                       <span className="Understanding Great">I've got this!</span>
                   </div>
                   <br />
