@@ -10,18 +10,16 @@ class SupportedPage extends Component {
     }
 
     selectSupportedRate = (event) => {
-        const supportedId = event.target.value;
-        console.log('Trying to get id', supportedId);
-        const supported = this.props.store.feedbackReducer[supportedId];
-        this.props.dispatch({type: 'SET_SUPPORT', payload: supported});
+        const supportedValue = parseInt(event.target.value);
+        this.props.dispatch({type: 'SET_SUPPORT', payload: supportedValue});
 
-        this.moveToCommentsPage();
     }
 
     render () {
         return(
             <div>
                 <h2>Did you feel supported by Prime staff today?</h2>
+                <p>On a scale to 1 to 5, do you feel supported today? 1 being I feel abandoned to 5 being I feel supported!</p>
                 <div>
                       <span className="Not Supported">I Feel Abandoned</span> 
                         <input className='rating' type='radio' value='1' name='rate' onChange={this.selectSupportedRate} />

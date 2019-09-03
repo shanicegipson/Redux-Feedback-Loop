@@ -8,6 +8,7 @@ import mapStoreToProps from '../../../modules/mapStoreToProps';
 
 class FeelingPage extends Component {
 
+    
 
     componentDidMount() {
         console.log('Mounted')
@@ -18,13 +19,8 @@ class FeelingPage extends Component {
     }
 
     selectFeelingRate = (event) => {
-        const ratingValue = event.target.value;
-        const ratingValueNum = parseInt(ratingValue);
-        console.log('Trying to get id', ratingValueNum);
-        const feeling = this.props.store.feedbackReducer={ratingValueNum};
-        this.props.dispatch({type: 'SET_FEELING', payload: feeling});
-
-        this.moveToContentPage();
+        const ratingValue = parseInt(event.target.value);
+        this.props.dispatch({type: 'SET_FEELING', payload: ratingValue});
     }
 
 
@@ -33,6 +29,7 @@ class FeelingPage extends Component {
         return (
             <div>
                 <h1>How Are You Feeling Today?</h1>
+                <p>On a scale to 1 to 5, how are you feeling today? 1 being I'm feeling stressed to 5 I'm feeling great!</p>
                   <div>
                       <span className="Feeling Bad">I'm Feeling Stressed</span> 
                         <input className='rating' type='radio' value='1' name='rate' onChange={this.selectFeelingRate} />
@@ -43,7 +40,7 @@ class FeelingPage extends Component {
                       <span className="Feeling Great">I'm Feeling Great</span>
                   </div>
                   <br />
-                <button onClick={this.selectFeelingRate}>Move to Understanding</button>
+                <button onClick={this.moveToContentPage}>Move to Understanding</button>
             </div>
         )
     }

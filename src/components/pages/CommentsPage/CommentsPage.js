@@ -9,6 +9,7 @@ class CommentsPage extends Component {
     }
 
     moveToReviewPage = () => {
+        this.props.dispatch({type: 'SET_COMMENTS', payload: this.state.value});
         this.props.history.push('/Review')
     }
 
@@ -17,12 +18,6 @@ class CommentsPage extends Component {
         this.setState({
             value: commentInfo
         })
-        
-        console.log('Trying to get id', commentInfo);
-        const comments = this.props.store.feedbackReducer[commentInfo];
-        this.props.dispatch({type: 'SET_COMMENTS', payload: comments});
-
-        this.moveToReviewPage();
 
     }
 
@@ -32,7 +27,7 @@ class CommentsPage extends Component {
             <div>
                 <h2>Is there anything else you'd like us to know?</h2>
                 <textarea type="text" value={this.state.value} onChange={this.addComments} placeholder="What would you like for us to know?" />
-                <button onClick={this.addComments}>Let's review</button>
+                <button onClick={this.moveToReviewPage}>Let's review</button>
             </div>
         )
     }
