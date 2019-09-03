@@ -1,19 +1,15 @@
-.homeButton {
+.commentsButton {
     background-color: lightseagreen;
     color:white;
     padding: 10px;
     font-size: 20px;
     margin: 100px;
-    
+        
 }
 
 
-h2 {
-    margin-top: 50px;
-    color: whitesmoke;
-}
-
-p {
-    padding: 40px;
-    color: whitesmoke;
+textarea {
+    width: 50%;
+    height: 300%;
+    outline: none;
 }

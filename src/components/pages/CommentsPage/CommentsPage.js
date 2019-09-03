@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import mapStoreToProps from '../../../modules/mapStoreToProps';
+import "./CommentsPage.css"
 
 class CommentsPage extends Component {
 
@@ -27,7 +28,7 @@ class CommentsPage extends Component {
             <div>
                 <h2>Is there anything else you'd like us to know?</h2>
                 <textarea type="text" value={this.state.value} onChange={this.addComments} placeholder="What would you like for us to know?" />
-                <button onClick={this.moveToReviewPage}>Let's review</button>
+                <button className="commentsButton" onClick={this.moveToReviewPage}>Let's review</button>
             </div>
         )
     }

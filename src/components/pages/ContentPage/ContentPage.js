@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import mapStoreToProps from '../../../modules/mapStoreToProps';
+import './ContentPage.css'
 
 class ContentPage extends Component {
 
@@ -30,7 +31,7 @@ class ContentPage extends Component {
                       <span className="Understanding Great">I've got this!</span>
                   </div>
                   <br />
-                <button onClick={this.moveToSupportedPage}>How can we help?</button>
+                <button className="contentButton" onClick={this.moveToSupportedPage}>How can we help?</button>
             </div>
         )
     }

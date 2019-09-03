@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  background-color: pink;
+  background-color: rgb(190, 190, 190);
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #2fdfd6;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -18,3 +18,8 @@
   font-size: large;
 }
 
+.App-Footer {
+  background-color: #2fdfd6;
+  min-height: 70px;
+  padding: 20px;
+}

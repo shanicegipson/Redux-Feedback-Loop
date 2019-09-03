@@ -27,6 +27,10 @@ class App extends Component {
           <Route exact path='/Comments' component={CommentsPage} />
           <Route exact path='/Review' component={ReviewPage} />
         </Router>
+
+        <footer className="App-Footer">
+          
+        </footer>
       </div>
     );
   }

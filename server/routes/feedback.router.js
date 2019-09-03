@@ -6,7 +6,7 @@ const pool = require('../modules/pool')
 
 
 router.get('/', (req, res) => {
-    let queryText = 'SELECT feeling, understanding, support, comment, flagged, date FROM "feedback" ';
+    let queryText = 'SELECT feeling, understanding, support, comment FROM "feedback" ';
     pool.query(queryText).then(result => {
       // Sends back the results in an object
       res.send(result.rows);
@@ -19,12 +19,10 @@ router.get('/', (req, res) => {
 
 router.post('/', (req,res) => {
     let feedback = req.body
-    console.log('this is req body', req.body);
 
-    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comment")
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
                         VALUES($1, $2, $3, $4);`;
-        console.log('this is query text', queryText);
-        pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comment])
+        pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments])
         .then(result => {
             res.sendStatus(201);
         })

@@ -7,11 +7,11 @@ const getFeedback = () => {
     })
 }
 
-const postFeedback = (feedback) => {
-    return ({
+const postFeedback = (feedbackReducer) => {
+    return axios ({
         method: 'POST',
         url: '/feedback',
-        data: {feedback}
+        data: feedbackReducer
     })
 }
 
